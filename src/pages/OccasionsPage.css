@@ -1,0 +1,94 @@
+.occasions-page {
+  padding: 10rem 5% 5rem;
+  background-color: var(--color-blush);
+  min-height: 100vh;
+}
+
+.occasions-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.occasions-header h1 {
+  font-size: 4rem;
+  color: var(--color-charcoal);
+  margin-bottom: 1rem;
+}
+
+.occasions-header p {
+  font-size: 1.2rem;
+  color: var(--color-charcoal);
+}
+
+.occasions-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.occasion-page-card {
+  background-color: var(--color-ivory);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.occasion-page-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.occ-card-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.occ-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.occasion-page-card:hover .occ-card-image img {
+  transform: scale(1.05);
+}
+
+.occ-card-content {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.occ-card-content h2 {
+  font-size: 2rem;
+  color: var(--color-charcoal);
+  margin-bottom: 1rem;
+}
+
+.occ-card-content p {
+  color: var(--color-charcoal);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Scroll reveal */
+.fade-up-hidden {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .occasions-header h1 {
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,152 @@
+.about-page {
+  background-color: var(--color-ivory);
+  min-height: 100vh;
+}
+
+/* About Hero */
+.about-hero {
+  padding: 15rem 5% 8rem;
+  background-color: var(--color-blush);
+  text-align: center;
+}
+
+.about-hero-content h1 {
+  font-size: 4rem;
+  color: var(--color-charcoal);
+  margin-bottom: 1.5rem;
+}
+
+.mission-statement {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--color-gold);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Story Section */
+.story-section {
+  padding: 8rem 5%;
+}
+
+.story-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 6rem;
+  align-items: center;
+}
+
+.story-text {
+  flex: 1;
+}
+
+.story-text h2 {
+  font-size: 2.5rem;
+  color: var(--color-charcoal);
+  margin-bottom: 2rem;
+}
+
+.story-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-charcoal);
+  margin-bottom: 1.5rem;
+}
+
+.story-image-container {
+  flex: 1;
+  position: relative;
+}
+
+.story-image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-hover);
+  display: block;
+}
+
+/* Team Section */
+.team-section {
+  padding: 8rem 5%;
+  background-color: var(--color-ivory);
+}
+
+.team-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.team-header h2 {
+  font-size: 3rem;
+  color: var(--color-charcoal);
+  margin-bottom: 1rem;
+}
+
+.team-header p {
+  color: var(--color-charcoal);
+  font-size: 1.1rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-card {
+  background: var(--color-ivory);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.4s ease;
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+}
+
+.team-image-wrapper {
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.team-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-image-wrapper img {
+  transform: scale(1.05);
+}
+
+.team-info {
+  padding: 2rem;
+}
+
+.team-info h3 {
+  font-size: 1.5rem;
+  color: var(--color-charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.team-info span {
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 900px) {
+  .story-container {
+    flex-direction: column;
+    gap: 4rem;
+  }
+}

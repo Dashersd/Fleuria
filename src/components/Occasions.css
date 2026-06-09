@@ -1,0 +1,70 @@
+.occasions {
+  padding: 6rem 5%;
+  background-color: var(--color-blush); /* Soft blush background */
+}
+
+.occasions .section-title {
+  color: var(--color-charcoal);
+}
+
+.occasions-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.occasion-item {
+  position: relative;
+  height: 400px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+}
+
+.occasion-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.occasion-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44, 44, 44, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s ease;
+}
+
+.occasion-title {
+  color: var(--color-ivory);
+  font-size: 2.5rem;
+  font-family: var(--font-heading);
+  letter-spacing: 2px;
+  opacity: 0.9;
+  transition: transform 0.4s ease;
+}
+
+.occasion-item:hover .occasion-image {
+  transform: scale(1.1);
+}
+
+.occasion-item:hover .occasion-overlay {
+  background: rgba(44, 44, 44, 0.5);
+}
+
+.occasion-item:hover .occasion-title {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .occasions-layout {
+    grid-template-columns: 1fr;
+  }
+}

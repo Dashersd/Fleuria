@@ -1,0 +1,85 @@
+:root {
+  --color-ivory: #F5F3EE; /* Cream White */
+  --color-blush: #DCCFC0; /* Stone Beige */
+  --color-sage: #7A8F6A; /* Olive Green */
+  --color-gold: #E3C38D; /* Champagne Gold */
+  --color-charcoal: #1F1F1F; /* Rich Black */
+
+  --font-heading: 'DM Sans', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  --shadow-soft: 0 10px 40px rgba(44, 44, 44, 0.08);
+  --shadow-hover: 0 20px 50px rgba(44, 44, 44, 0.12);
+  
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ivory);
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(220, 207, 192, 0.2), transparent 50%), /* Stone Beige */
+    radial-gradient(circle at 85% 30%, rgba(122, 143, 106, 0.15), transparent 50%), /* Olive Green */
+    radial-gradient(circle at 50% 80%, rgba(227, 195, 141, 0.18), transparent 50%); /* Champagne Gold */
+  background-size: 150% 150%;
+  animation: elegantFlow 18s ease-in-out infinite alternate;
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@keyframes elegantFlow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 100%; }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-charcoal);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Base App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
