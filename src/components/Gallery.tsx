@@ -6,9 +6,9 @@ import './Gallery.css';
 
 const galleryImages = [
   '/images/wildflower_bouquet.jpg',
+  '/images/enchanted_reception.jpg',
   '/images/classic_roses.png',
   '/images/tulip_medley.png',
-  '/images/enchanted_reception.jpg',
   '/images/golden_sunflowers.png',
   '/images/anniversary_florals.png'
 ];
