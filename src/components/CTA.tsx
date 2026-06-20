@@ -4,12 +4,10 @@ import './CTA.css';
 const CTA = () => {
   return (
     <section className="cta-section">
-      <div className="cta-background">
-        <img 
-          src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=1600&auto=format&fit=crop" 
-          alt="Floral background" 
-          className="cta-image"
-        />
+      <div 
+        className="cta-background" 
+        style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1563241527-3004b7be0ffd?q=80&w=1600&auto=format&fit=crop)' }}
+      >
         <div className="cta-overlay"></div>
       </div>
       <div className="cta-content">

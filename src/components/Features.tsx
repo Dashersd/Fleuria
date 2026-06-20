@@ -4,27 +4,27 @@ import './Features.css';
 const featuresData = [
   {
     id: 1,
+    num: '01',
     title: 'Fresh Daily Flowers',
     description: 'We source the freshest blooms every morning to ensure longevity and vibrant beauty.',
-    icon: '🌸',
   },
   {
     id: 2,
+    num: '02',
     title: 'Custom Arrangements',
     description: 'Work with our expert florists to bring your unique vision to life.',
-    icon: '✨',
   },
   {
     id: 3,
+    num: '03',
     title: 'Elegant Packaging',
     description: 'Every order is wrapped in our signature premium packaging for a luxurious unboxing.',
-    icon: '🎀',
   },
   {
     id: 4,
+    num: '04',
     title: 'Fast Delivery',
     description: 'Reliable, climate-controlled delivery ensuring your flowers arrive in perfect condition.',
-    icon: '🚚',
   }
 ];
 
@@ -63,9 +63,8 @@ const Features = () => {
             key={feature.id} 
             className="feature-card"
             variants={itemVariants}
-            whileHover={{ scale: 1.05, boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.08)" }}
           >
-            <div className="feature-icon">{feature.icon}</div>
+            <div className="feature-num">{feature.num}</div>
             <h3 className="feature-title">{feature.title}</h3>
             <p className="feature-desc">{feature.description}</p>
           </motion.div>

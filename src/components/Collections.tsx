@@ -18,7 +18,7 @@ const collectionsData = [
     id: 3,
     title: 'Lilies',
     description: 'Sophisticated and fragrant blooms for a touch of luxury.',
-    image: '/images/casablanca_lilies.png'
+    image: '/images/enchanted_reception.jpg'
   },
   {
     id: 4,

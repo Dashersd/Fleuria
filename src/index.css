@@ -5,8 +5,8 @@
   --color-gold: #E3C38D; /* Champagne Gold */
   --color-charcoal: #1F1F1F; /* Rich Black */
 
-  --font-heading: 'DM Sans', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-heading: 'Parisienne', cursive;
+  --font-body: 'Montserrat', sans-serif;
 
   --radius-sm: 8px;
   --radius-md: 16px;
@@ -40,6 +40,7 @@ body {
   animation: elegantFlow 18s ease-in-out infinite alternate;
   color: var(--color-charcoal);
   line-height: 1.6;
+  letter-spacing: 0.3px; /* Slightly elegant tracking for Montserrat */
   overflow-x: hidden;
 }
 

@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { motion, type Variants } from 'framer-motion';
+import Lightbox from 'yet-another-react-lightbox';
+import 'yet-another-react-lightbox/styles.css';
 import './Gallery.css';
 
 const galleryImages = [
+  '/images/wildflower_bouquet.jpg',
   '/images/classic_roses.png',
   '/images/tulip_medley.png',
-  '/images/casablanca_lilies.png',
+  '/images/enchanted_reception.jpg',
   '/images/golden_sunflowers.png',
-  '/images/anniversary_florals.png',
-  '/images/sympathy_florals.png'
+  '/images/anniversary_florals.png'
 ];
 
 const containerVariants: Variants = {
@@ -26,6 +29,8 @@ const itemVariants: Variants = {
 };
 
 const Gallery = () => {
+  const [index, setIndex] = useState(-1);
+
   return (
     <section id="gallery" className="gallery">
       <div className="section-header">
@@ -45,13 +50,20 @@ const Gallery = () => {
             key={idx} 
             className="gallery-item"
             variants={itemVariants}
-            whileHover={{ scale: 1.03, boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.15)" }}
             transition={{ duration: 0.3 }}
+            onClick={() => setIndex(idx)}
           >
             <img src={src} alt={`Floral arrangement ${idx + 1}`} loading="lazy" />
           </motion.div>
         ))}
       </motion.div>
+
+      <Lightbox
+        open={index >= 0}
+        index={index}
+        close={() => setIndex(-1)}
+        slides={galleryImages.map(src => ({ src }))}
+      />
     </section>
   );
 };

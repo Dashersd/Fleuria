@@ -1,4 +1,9 @@
-import { motion, type Variants } from 'framer-motion';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/pagination';
 import './Testimonials.css';
 
 const testimonialsData = [
@@ -22,21 +27,6 @@ const testimonialsData = [
   }
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
-};
-
 const Testimonials = () => {
   return (
     <section className="testimonials">
@@ -45,27 +35,29 @@ const Testimonials = () => {
         <p className="section-subtitle">Stories from our cherished customers</p>
       </div>
 
-      <motion.div 
-        className="testimonials-grid"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {testimonialsData.map((testimonial) => (
-          <motion.div 
-            key={testimonial.id} 
-            className="testimonial-card"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05, boxShadow: "0px 20px 40px rgba(0, 0, 0, 0.1)" }}
-          >
-            <div className="testimonial-quote">"</div>
-            <p className="testimonial-text">{testimonial.text}</p>
-            <h4 className="testimonial-name">{testimonial.name}</h4>
-            <span className="testimonial-role">{testimonial.role}</span>
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="testimonials-carousel-container">
+        <Swiper
+          modules={[Autoplay, EffectFade, Pagination]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          pagination={{ clickable: true }}
+          loop={true}
+          speed={1000}
+          className="testimonials-swiper"
+        >
+          {testimonialsData.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <div className="testimonial-card">
+                <div className="testimonial-quote">"</div>
+                <p className="testimonial-text">{testimonial.text}</p>
+                <h4 className="testimonial-name">{testimonial.name}</h4>
+                <span className="testimonial-role">{testimonial.role}</span>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </section>
   );
 };
