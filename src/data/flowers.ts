@@ -47,9 +47,9 @@ export const flowers: Flower[] = [
     longDescription: 'Known for their breathtaking size and intoxicating fragrance, our Casablanca Lilies are the epitome of elegance. Arranged with minimal greenery to let their star-shaped blooms take center stage, they transform any room into a luxurious sanctuary.',
     meaning: 'Purity, Majesty, and Honor.',
     availableColors: ['Pure White', 'Stargazer Pink'],
-    heroImage: '/images/enchanted_reception.jpg',
+    heroImage: '/images/new_casablanca_lilies.jpg',
     gallery: [
-      '/images/enchanted_reception.jpg',
+      '/images/new_casablanca_lilies.jpg',
       '/images/wedding_arch.png'
     ]
   },
