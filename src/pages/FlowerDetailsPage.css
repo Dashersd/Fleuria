@@ -187,3 +187,15 @@
     width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  .details-hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .details-container {
+    padding: 3rem 5%;
+  }
+  .details-section h2 {
+    font-size: 1.8rem;
+  }
+}
