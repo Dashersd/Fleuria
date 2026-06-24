@@ -66,3 +66,19 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+  .features {
+    padding: 4rem 5%;
+  }
+  .features-grid {
+    gap: 2rem;
+  }
+  .feature-card {
+    padding: 2rem 0;
+  }
+  .feature-num {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}

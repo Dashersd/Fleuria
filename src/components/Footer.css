@@ -65,4 +65,10 @@
     flex-direction: column;
     gap: 3rem;
   }
+  .footer {
+    padding: 4rem 5% 2rem;
+  }
+  .footer-logo {
+    font-size: 2rem;
+  }
 }

@@ -82,3 +82,22 @@
   color: var(--color-charcoal);
   font-size: 0.95rem;
 }
+
+@media (max-width: 768px) {
+  .collections {
+    padding: 4rem 5%;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+  .card-image-wrapper {
+    height: 280px;
+  }
+  .collections-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

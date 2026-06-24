@@ -64,3 +64,21 @@
   border-radius: 4px;
   background: var(--color-gold);
 }
+
+@media (max-width: 768px) {
+  .testimonials {
+    padding: 4rem 5%;
+  }
+  .testimonial-quote {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .testimonial-card {
+    padding: 1rem 0.5rem;
+  }
+}

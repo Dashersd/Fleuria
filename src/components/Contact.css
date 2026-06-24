@@ -105,3 +105,15 @@
     gap: 4rem;
   }
 }
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 5%;
+  }
+  .contact-form {
+    padding: 2rem 1.5rem;
+  }
+  .contact-container {
+    gap: 3rem;
+  }
+}

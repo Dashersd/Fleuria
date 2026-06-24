@@ -30,6 +30,15 @@ const itemVariants: Variants = {
 
 const Gallery = () => {
   const [index, setIndex] = useState(-1);
+  const [activeMobileIdx, setActiveMobileIdx] = useState(-1);
+
+  const handleImageClick = (idx: number) => {
+    if (window.innerWidth <= 768) {
+      setActiveMobileIdx(activeMobileIdx === idx ? -1 : idx);
+    } else {
+      setIndex(idx);
+    }
+  };
 
   return (
     <section id="gallery" className="gallery">
@@ -48,10 +57,10 @@ const Gallery = () => {
         {galleryImages.map((src, idx) => (
           <motion.div 
             key={idx} 
-            className="gallery-item"
+            className={`gallery-item ${activeMobileIdx === idx ? 'mobile-active' : ''}`}
             variants={itemVariants}
             transition={{ duration: 0.3 }}
-            onClick={() => setIndex(idx)}
+            onClick={() => handleImageClick(idx)}
           >
             <img src={src} alt={`Floral arrangement ${idx + 1}`} loading="lazy" />
           </motion.div>

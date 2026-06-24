@@ -43,4 +43,15 @@
   .gallery-masonry {
     column-count: 1;
   }
+  .gallery {
+    padding: 4rem 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-item.mobile-active img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.02);
+  }
 }

@@ -144,8 +144,35 @@
 }
 
 @media (max-width: 768px) {
+  .gallery-page {
+    padding: 6rem 0 4rem;
+  }
   .swiper-slide {
     width: 300px;
     height: 300px;
+  }
+  .gallery-header h1 {
+    font-size: 2.5rem;
+  }
+  .gallery-filters {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin: 0 -5% 3rem;
+    padding: 0.5rem 5%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .gallery-filters::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery-filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-size: 0.95rem;
+  }
+  .gallery-page-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }

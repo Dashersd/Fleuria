@@ -58,3 +58,18 @@
     text-align: center;
   }
 }
+
+@media (max-width: 768px) {
+  .about {
+    padding: 4rem 5%;
+  }
+  .about-image img {
+    height: 350px;
+  }
+  .about-text {
+    font-size: 1rem;
+  }
+  .about-signature {
+    text-align: center;
+  }
+}
