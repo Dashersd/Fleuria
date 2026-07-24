@@ -26,11 +26,16 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>Fleuria</Link>
         
-        <div className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <button 
+          className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`} 
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+        >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
-        </div>
+        </button>
 
         <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
           <li><Link to="/" onClick={closeMenu}>Home</Link></li>

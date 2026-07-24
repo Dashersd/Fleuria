@@ -1,16 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import CollectionsPage from './pages/CollectionsPage';
-import FlowerDetailsPage from './pages/FlowerDetailsPage';
-import OccasionsPage from './pages/OccasionsPage';
-import GalleryPage from './pages/GalleryPage';
-import AboutPage from './pages/AboutPage';
-import ContactPage from './pages/ContactPage';
+
+const Home = lazy(() => import('./pages/Home'));
+const CollectionsPage = lazy(() => import('./pages/CollectionsPage'));
+const FlowerDetailsPage = lazy(() => import('./pages/FlowerDetailsPage'));
+const OccasionsPage = lazy(() => import('./pages/OccasionsPage'));
+const GalleryPage = lazy(() => import('./pages/GalleryPage'));
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,15 +32,17 @@ function App() {
 
       <div className="app-container">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/collections" element={<CollectionsPage />} />
-          <Route path="/flower/:id" element={<FlowerDetailsPage />} />
-          <Route path="/occasions" element={<OccasionsPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-        </Routes>
+        <Suspense fallback={<LoadingScreen />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/collections" element={<CollectionsPage />} />
+            <Route path="/flower/:id" element={<FlowerDetailsPage />} />
+            <Route path="/occasions" element={<OccasionsPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </Suspense>
         <Footer />
       </div>
     </Router>

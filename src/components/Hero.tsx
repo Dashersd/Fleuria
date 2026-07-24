@@ -28,6 +28,7 @@ const Hero = () => {
           src="/images/hero_floral_bg.png" 
           alt="Luxury Floral Arrangement" 
           className="hero-image"
+          fetchPriority="high"
         />
         <div className="hero-overlay"></div>
       </motion.div>
