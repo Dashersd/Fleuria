@@ -10,20 +10,30 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // If we're not on home page, keep navbar visible slightly differently or just use standard scroll
       setScrolled(window.scrollY > 50 || !isHome);
     };
-    handleScroll(); // Check immediately on mount/location change
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHome]);
 
-  const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
-  const closeMenu = () => setIsMobileMenuOpen(false);
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  };
+
+  const closeMenu = () => {
+    setIsMobileMenuOpen(false);
+    document.body.style.overflow = 'unset';
+  };
 
   return (
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
-      <div className="navbar-container">
+      <div className="navbar-island">
         <Link to="/" className="navbar-logo" onClick={closeMenu}>Fleuria</Link>
         
         <button 
@@ -37,13 +47,24 @@ const Navbar = () => {
           <span className="bar"></span>
         </button>
 
-        <ul className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className={`navbar-links desktop-links`}>
           <li><Link to="/" onClick={closeMenu}>Home</Link></li>
           <li><Link to="/collections" onClick={closeMenu}>Collections</Link></li>
           <li><Link to="/occasions" onClick={closeMenu}>Occasions</Link></li>
           <li><Link to="/gallery" onClick={closeMenu}>Gallery</Link></li>
           <li><Link to="/about" onClick={closeMenu}>About</Link></li>
           <li><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
+        </ul>
+      </div>
+
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'active' : ''}`}>
+        <ul className="mobile-links">
+          <li style={{ transitionDelay: '0.1s' }}><Link to="/" onClick={closeMenu}>Home</Link></li>
+          <li style={{ transitionDelay: '0.15s' }}><Link to="/collections" onClick={closeMenu}>Collections</Link></li>
+          <li style={{ transitionDelay: '0.2s' }}><Link to="/occasions" onClick={closeMenu}>Occasions</Link></li>
+          <li style={{ transitionDelay: '0.25s' }}><Link to="/gallery" onClick={closeMenu}>Gallery</Link></li>
+          <li style={{ transitionDelay: '0.3s' }}><Link to="/about" onClick={closeMenu}>About</Link></li>
+          <li style={{ transitionDelay: '0.35s' }}><Link to="/contact" onClick={closeMenu}>Contact</Link></li>
         </ul>
       </div>
     </nav>

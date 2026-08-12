@@ -1,5 +1,4 @@
 .occasions {
-  padding: 8rem 5%;
   background-color: var(--color-blush); /* Soft blush background */
 }
 
@@ -10,17 +9,23 @@
 .occasions-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: 350px;
-  gap: 2rem;
+  grid-auto-rows: 400px;
+  gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .occasion-item {
   position: relative;
-  border-radius: 0; /* More editorial, sharp edges */
+  border-radius: 0;
   overflow: hidden;
   cursor: pointer;
+  transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1), box-shadow 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.occasion-item:hover {
+  transform: translateY(-8px) scale(0.99);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 }
 
 .item-1 {
@@ -39,10 +44,12 @@
 }
 
 .occasion-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  transition: transform 1.2s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 /* Glassmorphism Overlay */
@@ -59,7 +66,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease;
+  transition: all 0.6s cubic-bezier(0.32, 0.72, 0, 1);
+  border-radius: 1rem;
 }
 
 .occasion-title {
@@ -68,9 +76,9 @@
   font-family: var(--font-heading);
   letter-spacing: 2px;
   opacity: 0.9;
-  transition: transform 0.4s ease;
   margin: 0;
   text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform 0.6s cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 .occasion-item:hover .occasion-image {
@@ -78,8 +86,13 @@
 }
 
 .occasion-item:hover .occasion-overlay {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-5px);
+}
+
+.occasion-item:hover .occasion-title {
+  transform: scale(1.05);
 }
 
 @media (max-width: 900px) {
@@ -94,9 +107,6 @@
 }
 
 @media (max-width: 768px) {
-  .occasions {
-    padding: 4rem 5%;
-  }
   .occasions-layout {
     grid-auto-rows: 300px;
   }

@@ -20,9 +20,9 @@ const Hero = () => {
     <section id="home" className="hero">
       <motion.div 
         className="hero-background"
-        initial={{ scale: 1.1 }}
+        initial={{ scale: 1.05 }}
         animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: [0.32, 0.72, 0, 1] }}
       >
         <img 
           src="/images/hero_floral_bg.png" 
@@ -56,36 +56,53 @@ const Hero = () => {
           hidden: { opacity: 0 },
           visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2, delayChildren: 0.3 }
+            transition: { staggerChildren: 0.15, delayChildren: 0.2 }
           }
         }}
       >
+        <motion.span
+          className="eyebrow-tag"
+          variants={{
+            hidden: { y: 20, opacity: 0, filter: 'blur(5px)' },
+            visible: { y: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 1, ease: [0.32, 0.72, 0, 1] } }
+          }}
+        >
+          Fleuria Exclusives
+        </motion.span>
+
         <motion.h1 
           className="hero-title"
           variants={{
-            hidden: { y: 30, opacity: 0 },
-            visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+            hidden: { y: 40, opacity: 0, filter: 'blur(10px)' },
+            visible: { y: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 1.2, ease: [0.32, 0.72, 0, 1] } }
           }}
         >
-          Flowers for Every Beautiful Moment
+          Flowers for Every <br />Beautiful Moment
         </motion.h1>
+
         <motion.p 
           className="hero-subtitle"
           variants={{
-            hidden: { y: 30, opacity: 0 },
-            visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+            hidden: { y: 20, opacity: 0 },
+            visible: { y: 0, opacity: 1, transition: { duration: 1, ease: [0.32, 0.72, 0, 1] } }
           }}
         >
           Handcrafted floral arrangements designed to celebrate life's most meaningful occasions.
         </motion.p>
+        
         <motion.div 
           className="hero-buttons"
           variants={{
-            hidden: { y: 30, opacity: 0 },
-            visible: { y: 0, opacity: 1, transition: { duration: 0.8, ease: "easeOut" } }
+            hidden: { y: 20, opacity: 0 },
+            visible: { y: 0, opacity: 1, transition: { duration: 1, ease: [0.32, 0.72, 0, 1] } }
           }}
         >
-          <Link to="/collections" className="hero-cta">Explore Collections</Link>
+          <Link to="/collections" className="hero-cta group">
+            <span>Explore Collections</span>
+            <div className="icon-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </div>
+          </Link>
           <a href="#gallery" className="hero-cta-secondary">View Gallery</a>
         </motion.div>
       </motion.div>

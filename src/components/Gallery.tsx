@@ -24,48 +24,59 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: "easeOut" } }
+  hidden: { opacity: 0, y: 100, filter: 'blur(10px)' },
+  visible: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 1.2, ease: [0.32, 0.72, 0, 1] } }
 };
 
 const Gallery = () => {
   const [index, setIndex] = useState(-1);
-  const [activeMobileIdx, setActiveMobileIdx] = useState(-1);
 
   const handleImageClick = (idx: number) => {
-    if (window.innerWidth <= 768) {
-      setActiveMobileIdx(activeMobileIdx === idx ? -1 : idx);
-    } else {
-      setIndex(idx);
-    }
+    setIndex(idx);
   };
 
   return (
-    <section id="gallery" className="gallery">
-      <div className="section-header">
-        <h2 className="section-title">Floral Gallery</h2>
-        <p className="section-subtitle">A visual journey through our finest creations</p>
-      </div>
+    <section id="gallery" className="gallery macro-padding">
+      <div className="gallery-container">
+        {/* Left Side: Typography */}
+        <motion.div 
+          className="gallery-typography"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: [0.32, 0.72, 0, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <span className="eyebrow-tag">Exquisite Details</span>
+          <h2 className="gallery-title">A Visual Journey Through Our Creations</h2>
+          <p className="gallery-subtitle">
+            Every arrangement is a masterpiece crafted with precision and passion. Explore our gallery to witness the artistry of Fleuria.
+          </p>
+        </motion.div>
 
-      <motion.div 
-        className="gallery-masonry"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-      >
-        {galleryImages.map((src, idx) => (
-          <motion.div 
-            key={idx} 
-            className={`gallery-item ${activeMobileIdx === idx ? 'mobile-active' : ''}`}
-            variants={itemVariants}
-            transition={{ duration: 0.3 }}
-            onClick={() => handleImageClick(idx)}
-          >
-            <img src={src} alt={`Floral arrangement ${idx + 1}`} loading="lazy" />
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* Right Side: Interactive Image Pills */}
+        <motion.div 
+          className="gallery-interactive"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {galleryImages.map((src, idx) => (
+            <motion.div 
+              key={idx} 
+              className="gallery-image-wrapper double-bezel"
+              variants={itemVariants}
+            >
+              <div 
+                className="double-bezel-inner"
+                onClick={() => handleImageClick(idx)}
+              >
+                <img src={src} alt={`Floral arrangement ${idx + 1}`} loading="lazy" />
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
 
       <Lightbox
         open={index >= 0}

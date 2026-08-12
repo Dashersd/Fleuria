@@ -30,14 +30,15 @@ const containerVariants: Variants = {
 };
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  hidden: { opacity: 0, scale: 0.95, filter: 'blur(10px)' },
+  visible: { opacity: 1, scale: 1, filter: 'blur(0px)', transition: { duration: 1, ease: [0.32, 0.72, 0, 1] } }
 };
 
 const Occasions = () => {
   return (
-    <section id="occasions" className="occasions">
+    <section id="occasions" className="occasions macro-padding">
       <div className="section-header">
+        <span className="eyebrow-tag">Life's Milestones</span>
         <h2 className="section-title">For Every Occasion</h2>
         <p className="section-subtitle">Elevate your special moments with bespoke florals</p>
       </div>
@@ -52,13 +53,14 @@ const Occasions = () => {
         {occasionsData.map((occ) => (
           <motion.div 
             key={occ.id} 
-            className={`occasion-item item-${occ.id}`}
+            className={`occasion-item item-${occ.id} double-bezel`}
             variants={itemVariants}
-            transition={{ duration: 0.3 }}
           >
-            <img src={occ.image} alt={occ.title} className="occasion-image" />
-            <div className="occasion-overlay">
-              <h3 className="occasion-title">{occ.title}</h3>
+            <div className="double-bezel-inner relative group">
+              <img src={occ.image} alt={occ.title} className="occasion-image" loading="lazy" />
+              <div className="occasion-overlay">
+                <h3 className="occasion-title">{occ.title}</h3>
+              </div>
             </div>
           </motion.div>
         ))}
